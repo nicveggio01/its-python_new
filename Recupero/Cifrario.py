@@ -9,6 +9,7 @@ def caesar_cypher_encrypt(s, key):
         print("Errore la chiave non può essere negativa")
     else:
         for char in s:
+            
             if char in ascii_lowercase:
                posizione= ascii_lowercase.index(char)
                nuova_posizione= posizione + key % 26

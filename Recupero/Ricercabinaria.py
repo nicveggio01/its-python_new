@@ -22,7 +22,7 @@ def ricerca_binaria(numeri:list[int], numero:int)->bool:
             print("Cerca nella metà sinistra")
     return False
 
-print(ricerca_binaria([12,45, 87, 2, 65, 4, 91], 91))             
+print(ricerca_binaria([12,45, 87, 2, 65, 4, 91], 12))             
         
 
 
