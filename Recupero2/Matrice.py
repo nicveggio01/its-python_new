@@ -11,7 +11,7 @@ def sum_primary_diagonal(matrice:list[list[int]])-> int:
 
 def sum_secondary_diagonal(matrice:list[list[int]])-> int:
 
-    somma_diagonale2=0
+    somma_diagonale2=0 
 
     for i in range(len(matrice)):
         # per quanto riguarda la somma della diagonale secondaria, faccio 0x2, 1x1, 2x0; 

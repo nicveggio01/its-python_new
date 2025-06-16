@@ -1,7 +1,7 @@
 def is_valid_ipv4(address: str) -> bool:
     parts = address.split(".")
 
-    if len(parts) !=4:
+    if len(parts) !=4: 
         return False
     
     for p in parts:

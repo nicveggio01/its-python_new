@@ -16,7 +16,7 @@ def conta_parole_uniche(testo:str)-> dict:
         token= token.strip(string.punctuation)
     
         if token== "":
-            print("Il testo è vuoto")
+            continue
         
         else:
             if token not in conteggio:
@@ -27,7 +27,7 @@ def conta_parole_uniche(testo:str)-> dict:
 
     return conteggio
   
-print(conta_parole_uniche("ciao come va? come state?"))
+print(conta_parole_uniche("ciao ciao come stai?"))
 
 
 
