@@ -53,7 +53,7 @@ class Frazione:
     def semplificata(self):
             
         if self._denominatore==0:
-            raise ValueError("Errore non si può dividere un numero per 0.")
+            raise ZeroDivisionError("Errore non si può dividere un numero per 0.")
         else:
             divisore= Frazione.mcd(self._numeratore, self._denominatore)
             n=int(self._numeratore)
