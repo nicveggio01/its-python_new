@@ -144,19 +144,12 @@ def combattimento( a: Alieno, m: Mostro) -> Alieno | Mostro | None:
 
 def proclamaVincitore(c:Creatura)-> None:
 
-    vincitore=str(c)
-    lunghezza= len(vincitore)+10
-    altezza= 5
+    larghezza= len(c.get_nome()) + 8
+    bordo= "*"* larghezza
+    vuoto= "*" +(""*(larghezza-2))+"*"
+    centrale= "*   "+c.get_nome() +"   *" 
+    return "\n".join([bordo, vuoto, centrale, vuoto, bordo])
 
-    for i in range(altezza):
-        if i==0 or i==altezza-1:
-            print("*"* lunghezza)
-        elif i==2:
-            print("*", end="")
-            print(" "*4, end= "")
-            print(c, end=" ")
-        else:
-            print("*"* lunghezza)
 
 def main():
 
@@ -166,7 +159,7 @@ def main():
 
     vincitore= combattimento(alieno, mostro)
     print()
-    proclamaVincitore(vincitore)
+    print(proclamaVincitore(vincitore))
 
 if __name__ == "__main__":
     main()
