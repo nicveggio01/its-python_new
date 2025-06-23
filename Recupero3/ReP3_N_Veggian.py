@@ -29,9 +29,13 @@ class Alieno(Creatura):
         if not nome.startswith("Robot"):
             raise ValueError("Attenzione! Tutti gli Alieni devono avere il nome [Robot] seguito dal numero di matricola! Reimpostazione nome Alieno in Corso!")
 
-        super().__init__(nome)
         self.__setMatricola()
+        nome_con_matricola=f"{nome}-{self.__matricola}"
+        super().__init__(nome_con_matricola)
+    
         self.__setMunizioni()
+        
+
 
     def __setMatricola(self) -> None:
         self.__matricola = random.randint(10000, 90000)
@@ -52,7 +56,7 @@ class Alieno(Creatura):
             raise ValueError("Lista non valida: devono essere 15 numeri positivi")
 
     def __str__(self) -> str:
-        return f"Matricola: {self.__matricola}  +  Munizioni: {self.__munizioni}"
+        return f"Alieno: {self._nome} - {self.__matricola} "
 
 
 class Mostro(Creatura):
@@ -146,19 +150,20 @@ def proclamaVincitore(c:Creatura)-> None:
 
     larghezza= len(c.get_nome()) + 8
     bordo= "*"* larghezza
-    vuoto= "*" +(""*(larghezza-2))+"*"
+    vuoto= "**                    **"
+    spazi=" "
     centrale= "*   "+c.get_nome() +"   *" 
-    return "\n".join([bordo, vuoto, centrale, vuoto, bordo])
+    return "\n".join([bordo, spazi,vuoto, spazi, centrale, spazi, vuoto, spazi, bordo])
 
 
 def main():
 
-    alieno= Alieno("Robot-256723")
+    alieno= Alieno("RobotNicco")
     mostro=Mostro("GoDzIlLa")
     
 
     vincitore= combattimento(alieno, mostro)
-    print()
+    
     print(proclamaVincitore(vincitore))
 
 if __name__ == "__main__":
