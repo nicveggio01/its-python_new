@@ -36,17 +36,5 @@ for item in clienti:
 print(f"{'total':<10} {sum(clienti):<10} {total:<2f}")
 
 
-
-
-
-
-
-
-
-                       
-
-
-
-
 print(calculateCharges(6))
 
