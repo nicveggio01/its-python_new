@@ -1,14 +1,18 @@
-
+ 
+#Esercizio base sulle Ricorsioni
 def printListBackward(lista:list[int|float|str]):
 
-    lista= reversed(lista)
+    if not lista:
+        print("")
+    else:
+        print(lista[-1])
+        printListBackward(lista[:-1])
 
-    for element in lista:
-        print(element)
+lista=[1,48,98,12]
+print(printListBackward(lista))
 
 
-printListBackward(lista=[12,48,22,36,89])
-printListBackward(lista= ["ciao", "come", "va"])
+
 
 
 
