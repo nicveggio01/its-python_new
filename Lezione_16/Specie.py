@@ -16,20 +16,21 @@ class Specie:
         popolazione_specie1= self._popolazione
         popolazione_specie2= altra_specie._popolazione
 
-        while popolazione_specie2 <= popolazione_specie1:
+        while popolazione_specie1 <= popolazione_specie2:
 
-            popolazione_specie1 += (popolazione_specie1*(self._tasso_crescita/100))
-            popolazione_specie2 += (popolazione_specie2* (altra_specie._tasso_crescita/100))
+            popolazione_specie1 += int(popolazione_specie1*(self._tasso_crescita/100))
+            popolazione_specie2 += int(popolazione_specie2* (altra_specie._tasso_crescita/100))
             anni +=1
         
         return anni
     
-    def getDensita(self, area_kmq:float)->int:
-        anni=0
+    def getDensita(self, area_kmq: float) -> int:
+        anni = 0
+        popolazione = self._popolazione  
 
-        while self._popolazione/area_kmq < 1:
-            self._popolazione += (self._popolazione*(self._tasso_crescita/100))
-            anni +=1
+        while (popolazione / area_kmq) < 1:
+            popolazione += popolazione * (self._tasso_crescita / 100)
+            anni += 1
         return anni
 
 class BufaloKlingon(Specie):
@@ -41,18 +42,15 @@ class Elefante(Specie):
     def __init__(self, popolazione_iniziale:int, tasso_crescita:float):
         super().__init__("Elefante", popolazione_iniziale= popolazione_iniziale, tasso_crescita= tasso_crescita)
 
+bufalo_klingon = BufaloKlingon(100, 15)  
+elefante = Elefante(10, 35)  
 
 
-# Creazione delle istanze delle specie
-bufalo_klingon = BufaloKlingon(100, 15)  # Crea un'istanza di BufaloKlingon con popolazione 100 e tasso di crescita 15%
-elefante = Elefante(10, 35)  # Crea un'istanza di Elefante con popolazione 10 e tasso di crescita 35%
-
-# Calcolo degli anni necessari per superare
-anni_necessari = elefante.anni_per_superare(bufalo_klingon)  # Calcola gli anni necessari affinché gli elefanti superino i bufali Klingon
+anni_necessari = elefante.anni_per_superare(bufalo_klingon)  
 print(f"Anni necessari perché la popolazione di elefanti superi quella dei bufali Klingon: {anni_necessari}")
 
-# Calcolo della densità di popolazione per i Bufali Klingon
-anni_densita = bufalo_klingon.getDensita(1500)  # Calcola gli anni necessari per raggiungere una densità di 1 bufalo Klingon per km²
+
+anni_densita = bufalo_klingon.getDensita(1500) 
 print(f"Anni necessari per raggiungere una densità di 1 Bufalo Klingon per km quadrato: {anni_densita}")
 
 
